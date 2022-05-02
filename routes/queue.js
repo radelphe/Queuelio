@@ -21,7 +21,7 @@ router.get("/indi/:queueCode", auth, isLogedIn, (req, res) =>{
   Queue.findOne({_id: queueCode}, (err, foundQueue) => {
 
     const host = req.get("host");
-    const address = "https://"+host+"/queue/join/"+queueCode;
+    const address = "http://"+host+"/queue/join/"+queueCode;
 
     const userPos = foundQueue.joinedUsersID.indexOf(req.user._id)+1;
 
